@@ -1,0 +1,17 @@
+# Template file for 'purple-events'
+pkgname=purple-events
+version=0.99.1
+revision=1
+build_style=gnu-configure
+hostmakedepends="intltool automake libtool gettext-devel pkg-config"
+makedepends="libpurple-devel"
+short_desc="libpurple events handling plugin and library"
+maintainer="Jonas Fentker <jonas@fentker.eu>"
+license="GPL-3"
+homepage="http://purple-events.sardemff7.net/"
+distfiles="https://github.com/sardemff7/${pkgname}/archive/v${version}.tar.gz"
+checksum=178ea872947155e26222ad0ddce3d22ab97707f27d5ed5e867e9367cd80f3872
+
+pre_configure() {
+	./autogen.sh
+}
