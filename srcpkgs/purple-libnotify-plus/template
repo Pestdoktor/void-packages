@@ -1,0 +1,17 @@
+# Template file for 'purple-libnotify-plus'
+pkgname=purple-libnotify-plus
+version=2.99.1
+revision=1
+build_style=gnu-configure
+hostmakedepends="intltool automake libtool gettext-devel pkg-config"
+makedepends="libpurple-devel purple-events libnotify-devel"
+short_desc="Provide libnotify interface to Pidgin and Finch"
+maintainer="Jonas Fentker <jonas@fentker.eu>"
+license="GPL-3"
+homepage="http://purple-libnotify-plus.sardemff7.net/"
+distfiles="https://github.com/sardemff7/${pkgname}/archive/v${version}.tar.gz"
+checksum=305335b359ced2266996d5968f3b2a44e89b7971dc79c39f10dcd498bac7ca8a
+
+pre_configure() {
+	./autogen.sh
+}
