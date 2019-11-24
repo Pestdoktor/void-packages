@@ -1,0 +1,22 @@
+# Template file for 'source-serif-pro'
+pkgname=source-serif-pro
+version=3.001
+revision=1
+_relver="3.001R"
+archs=noarch
+wrksrc="source-serif-pro-${_relver/\//-}"
+depends="font-util"
+short_desc="Sans serif font family for user interface environments"
+maintainer="WantToHelp <ghostinthecsh@gmail.com>"
+license="OFL-1.1"
+homepage="https://adobe-fonts.github.io/source-serif-pro/"
+distfiles="https://github.com/adobe-fonts/source-serif-pro/archive/${_relver}.tar.gz"
+checksum=84e08c9e870081e0fcda4d83b02e06a4a7f35e52f96491a2246eca8b82fc8a53
+font_dirs="/usr/share/fonts/OTF /usr/share/fonts/TTF"
+
+do_install() {
+	vmkdir usr/share/fonts/TTF
+	vmkdir usr/share/fonts/OTF
+	install -m644 ${wrksrc}/TTF/*.ttf ${DESTDIR}/usr/share/fonts/TTF
+	install -m644 ${wrksrc}/OTF/*.otf ${DESTDIR}/usr/share/fonts/OTF
+}
