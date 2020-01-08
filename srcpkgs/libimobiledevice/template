@@ -1,7 +1,9 @@
 # Template file for 'libimobiledevice'
 pkgname=libimobiledevice
 version=1.2.0
-revision=15
+_commit=d04f8ff2e20c42f74161c9cd66502da17b8b0e70
+wrksrc="${pkgname}-${_commit}"
+revision=16
 build_style=gnu-configure
 hostmakedepends="automake libtool pkgconf python3-Cython"
 makedepends="python3-devel libglib-devel libressl-devel libusb-devel
@@ -10,8 +12,8 @@ short_desc="Library to communicate with Apple devices"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="LGPL-2.1-only"
 homepage="https://github.com/libimobiledevice/libimobiledevice"
-distfiles="https://github.com/libimobiledevice/libimobiledevice/archive/${version}.tar.gz"
-checksum=8ba1ea817691b3548b83371f8ec22d73d1e37f8fda7c899ac9c7121d924ca830
+distfiles="https://github.com/libimobiledevice/libimobiledevice/archive/${_commit}.tar.gz"
+checksum=cfa01d5d03689412a8cfd482b27b324510748ad585f352198b47a39f60753944
 
 if [ "$CROSS_BUILD" ]; then
 	configure_args="ac_cv_sys_file_offset_bits=yes ac_cv_sys_large_file=yes"
