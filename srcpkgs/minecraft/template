@@ -1,15 +1,21 @@
 # Template file for 'minecraft'
 pkgname=minecraft
-version=0.5
+version=2.1.10835
 revision=1
+wrksrc=minecraft-launcher
 archs=noarch
-depends="wmname wget"
+depends="virtual?java-runtime"
 short_desc="Launcher for the famous Minecraft game"
 maintainer="Orphaned <orphan@voidlinux.org>"
 homepage="http://www.minecraft.net/"
 license="Propietary"
+distfiles="https://launcher.mojang.com/download/linux/x86_64/minecraft-launcher_${version}.tar.gz"
+checksum="3cb6a63c18a6b40ed69ffaa6006c5b6fc3ab684556d15cfdc9a4cd10817afd1e"
 repository=nonfree
 
 do_install() {
-	vbin ${FILESDIR}/minecraft
+	vmkdir usr/lib/minecraft
+	vmkdir usr/bin
+	vcopy * /usr/lib/minecraft
+	ln -s /usr/lib/minecraft/minecraft-launcher ${DESTDIR}/usr/bin
 }
